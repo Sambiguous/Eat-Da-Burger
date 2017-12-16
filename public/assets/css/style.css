@@ -1,0 +1,42 @@
+
+.jumbotron {
+    background-image: url("../media/burger.jpg");
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.top-bun {
+    height: 150px;
+    background-color: rgb(216, 194, 105);
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+}
+
+.bottom-bun {
+    height: 100px;
+    background-color: rgb(216, 194, 105);
+    border-bottom-left-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+}
+
+
+.patty div {
+    border-top: 3px solid rgb(255, 204, 0);
+    text-align: center;
+    background-color:rgb(130, 90, 87);
+    height: 50px;
+    line-height: 50px;
+}
+
+.left {
+
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.right {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
