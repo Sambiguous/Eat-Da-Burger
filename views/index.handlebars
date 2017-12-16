@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Devoured</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each burgers}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.burger_name}}</td>
+                <td>{{this.devoured}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
