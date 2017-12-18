@@ -1,78 +1,73 @@
 <div class="row">
-
     {{#unless allDevoured}}
-
         {{> buns/top}}
-
     {{/unless}}
 
     {{#if allDevoured}}
-
         {{> devoured/all}}
-
     {{/if}}
-
 </div>
 
 {{#each burgers}}
     {{#unless this.devoured  }}
         <div class="row">
-            
             <div class="left patty col-xs-1 col-xs-offset-1"></div>
-            <div class="patty col-xs-6">
-
+            <div class="patty col-xs-5">
                 <p class="burger-name" id={{this.id}}>{{this.id}}. {{this.burger_name}}</p>
-
             </div>
-
-            <div class="right patty col-xs-3">
-
+            <div class="patty col-xs-2">
                 <form action="/1/{{this.id}}?_method=PUT" method="POST">
                     <button class="btn btn-default btn-sm" type="submit">Devour</button>
                 </form>
+            </div>
+            <div class="right patty col-xs-2">
+                <form action="/{{this.id}}?_method=DELETE" method="POST">
+                    <button class="btn btn-default btn-sm" type="submit">Throw away</button>
+                </form>
 
             </div>
-
         </div>
     {{/unless}}
 {{/each}}
 
-
 {{#unless allDevoured}}
-
     {{> buns/bottom}}
-
 {{/unless}}
+
+<br>
+
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3 text-center">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="burger" placeholder="Enter a burger">
+            </div>
+
+            <button class="btn btn-default" type="submit" value="submit" id="new_burger">Submit</button>
+        </form>
+    </div>
+</div>
 
 
 <hr>
 
 
 {{#unless noneDevoured}}
-
-    {{< buns/devoured_top}}
-
+    {{> buns/devoured_top}}
 {{/unless}}
-
 
 {{#each burgers}}
     {{#if this.devoured  }}
         <div class="row">
             <div class="left patty col-xs-1 col-xs-offset-1"></div>
             <div class="patty col-xs-6">
-
                 <p class="burger-name" id={{this.id}}>{{this.id}}. {{this.burger_name}}</p>
-
             </div>
-
             <div class="right patty col-xs-3">
-
                 <form action="/0/{{this.id}}?_method=PUT" method="POST">
                     <button class="btn btn-default btn-sm" type="submit">Order Another</button>
                 </form>
-
             </div>
-
         </div>
     {{/if}}
 {{/each}}
