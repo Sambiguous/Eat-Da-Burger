@@ -9,7 +9,8 @@ var burger = {
         orm.insertOne("burgers", data, cb);
     }, 
     devourBurger: function(data, cb){
-        orm.updateOne("table", data, cb);
+
+        orm.updateOne("burgers", data, cb);
     }
 }
 

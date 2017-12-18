@@ -1,16 +1,89 @@
+<div class="row">
+
+    {{#unless allDevoured}}
+
+        {{> buns/top}}
+
+    {{/unless}}
+
+    {{#if allDevoured}}
+
+        {{> devoured/all}}
+
+    {{/if}}
+
+</div>
+
 {{#each burgers}}
-    <div class="row patty">
-        <div class="left col-xs-4">
-            {{this.id}}
+    {{#unless this.devoured  }}
+        <div class="row">
+            
+            <div class="left patty col-xs-1 col-xs-offset-1"></div>
+            <div class="patty col-xs-6">
+
+                <p class="burger-name" id={{this.id}}>{{this.id}}. {{this.burger_name}}</p>
+
+            </div>
+
+            <div class="right patty col-xs-3">
+
+                <form action="/1/{{this.id}}?_method=PUT" method="POST">
+                    <button class="btn btn-default btn-sm" type="submit">Devour</button>
+                </form>
+
+            </div>
+
         </div>
-        <div class="col-xs-4">
-            {{this.burger_name}}
-        </div>
-        <div class="right col-xs-4">
-            {{this.devoured}}
-        </div>
-    </div>
+    {{/unless}}
 {{/each}}
+
+
+{{#unless allDevoured}}
+
+    {{> buns/bottom}}
+
+{{/unless}}
+
+
+<hr>
+
+
+{{#unless noneDevoured}}
+
+    {{< buns/devoured_top}}
+
+{{/unless}}
+
+
+{{#each burgers}}
+    {{#if this.devoured  }}
+        <div class="row">
+            <div class="left patty col-xs-1 col-xs-offset-1"></div>
+            <div class="patty col-xs-6">
+
+                <p class="burger-name" id={{this.id}}>{{this.id}}. {{this.burger_name}}</p>
+
+            </div>
+
+            <div class="right patty col-xs-3">
+
+                <form action="/0/{{this.id}}?_method=PUT" method="POST">
+                    <button class="btn btn-default btn-sm" type="submit">Order Another</button>
+                </form>
+
+            </div>
+
+        </div>
+    {{/if}}
+{{/each}}
+
+{{#unless noneDevoured}}
+    {{> buns/bottom}}
+{{/unless}}
+
+
+
+
 
 
 

@@ -21,12 +21,16 @@
 }
 
 
-.patty div {
+.burger-name {
+    font-size: 30px;
+}
+
+.patty {
     border-top: 3px solid rgb(255, 204, 0);
-    text-align: center;
+    text-align: left;
     background-color:rgb(130, 90, 87);
     height: 50px;
-    line-height: 50px;
+    line-height: 45px;
 }
 
 .left {
