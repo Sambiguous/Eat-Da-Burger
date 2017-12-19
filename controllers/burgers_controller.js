@@ -12,7 +12,6 @@ router.get("/", function(req, res){
         }
 
         //console.log(data);
-
         let devoured = 0;
         let undevoured = 0;
 
@@ -34,7 +33,7 @@ router.get("/", function(req, res){
     });
 });
 
-router.post("/newburger", function(req, res){
+router.post("/", function(req, res){
 
     let data = {
         burger_name: req.body.name
@@ -43,35 +42,7 @@ router.post("/newburger", function(req, res){
     burger.addBurger(data, function(result){
         console.log(result);
 
-        // burger.allBurgers(function(result){
-        //     console.log(result);
-        //     let data = {
-        //         burgers: result
-        //     }
-    
-        //     let devoured = 0;
-        //     let undevoured = 0;
-    
-        //     // read the devoured status of all of the burgers in the database and increment the appropriate counter;
-        //     for(i in result){
-        //         if(result[i].devoured === 1){
-        //             devoured ++;
-        //         } else{
-        //             undevoured ++;
-        //         }
-        //     }
-            
-        //     // add two properties to the 'data' object that are booleans based on the devoured status of all of the burgers
-        //     // handlebars uses these booleans to render the appropriate partials
-        //     data.allDevoured = undevoured === 0;
-        //     data.noneDevoured = devoured === 0;
-    
-        //     res.render("index", data);
-        // })
-
-
         res.redirect("/")
-
 
     });
 });
@@ -84,7 +55,7 @@ router.put("/:devoured/:id", function(req, res) {
     };
 
     burger.devourBurger(data, function(result){
-        //console.log(result);
+
         res.redirect("/");
     });
 });
@@ -95,7 +66,7 @@ router.delete("/:id", function(req, res){
     };
 
     burger.deleteBurger(data, function(result){
-        //console.log(result);
+
         res.redirect("/");
     });
 });

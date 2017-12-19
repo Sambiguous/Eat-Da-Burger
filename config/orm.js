@@ -36,6 +36,7 @@ var orm = {
 
         connection.query(sql, paramList, function(err, result){
             if(err) throw err;
+            
 
             cb(result);
         });
