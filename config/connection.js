@@ -11,7 +11,8 @@ if (process.env.JAWSDB_URL){
         password: "PO)(IU*&po09iu87",
         database: "burger_db"
     });
-    
 }
 
+
+connection.connect();
 module.exports = connection;
